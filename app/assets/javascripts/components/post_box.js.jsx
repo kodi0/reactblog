@@ -1,10 +1,12 @@
 var PostBox = React.createClass({
   render: function() {
+    console.log(this.props.posts);
     return (
-      <div className="commentBox">
+      <div className="postBox">
         <h2>Posts</h2>
         <PostForm />
-        <Posts title="Be or not to be" body="Body" />
+        <hr />
+        <Posts data={this.props.posts} />
       </div>
     );
   }
