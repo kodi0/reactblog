@@ -8,8 +8,8 @@ PostForm = React.createClass
     # get data from form
     title = this.refs.title.getDOMNode().value.trim();
     body = this.refs.body.getDOMNode().value.trim();
-    # call onPostSubmit in parent PostBox and pass post object, 
-    # i guess this.props is global object, so we just define there property onPostSubmit, which is a function
+    # call onPostSubmit in parent PostBox and pass post object
+    # this is mechanism with which we can transfer data from child to parent
     this.props.onPostSubmit({title: title, body: body});
     # clear form
     this.refs.title.getDOMNode().value = '';

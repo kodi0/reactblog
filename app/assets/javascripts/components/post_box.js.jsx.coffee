@@ -1,5 +1,5 @@
 PostBox = React.createClass
-  loadCommentsFromServer: ->
+  loadPostsFromServer: ->
     $.ajax
       url: this.props.url
       dataType: 'json'
@@ -26,7 +26,8 @@ PostBox = React.createClass
     data: []
   
   componentDidMount: ->
-    this.loadCommentsFromServer()
+    this.loadPostsFromServer()
+    console.log(this.props)
 
   render: ->
     return (
