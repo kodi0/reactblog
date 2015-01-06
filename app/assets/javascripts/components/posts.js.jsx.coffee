@@ -3,7 +3,7 @@ Posts = React.createClass
     PostNodes = this.props.data.map (post)->
       return (
         `<li key={post.key}>
-          <Post  title={post.title} body={post.body} />
+          <Post  data = { post } />
         </li>`
         )
     return (

@@ -14,6 +14,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    @post.user = current_user
     @post.save
     @posts = Post.all
     render json: @posts
@@ -27,6 +28,13 @@ class PostsController < ApplicationController
   def destroy
     @post.destroy
     respond_with(@post)
+  end
+
+  def my_posts
+    @posts = Post.where user: current_user
+    respond_to do |format|
+      format.json { render 'index' }
+    end
   end
 
   private

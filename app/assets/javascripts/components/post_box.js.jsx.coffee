@@ -8,7 +8,7 @@ PostBox = React.createClass
           data: data
       error: (xhr, status, err)=>
         console.error(this.props.url, status, err.toString())
-  
+
   handlePostSubmit: (post)->
     $.ajax
       url: '/posts.json'
@@ -24,7 +24,7 @@ PostBox = React.createClass
 
   getInitialState: ->
     data: []
-  
+
   componentDidMount: ->
     this.loadPostsFromServer()
     console.log(this.props)
