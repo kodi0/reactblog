@@ -17,7 +17,9 @@ class PostsController < ApplicationController
     @post.user = current_user
     @post.save
     @posts = Post.all
-    render json: @posts
+    respond_to do |format|
+      format.json { render 'index' }
+    end
   end
 
   def update

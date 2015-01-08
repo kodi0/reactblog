@@ -1,17 +1,12 @@
 UserPostBox = React.createClass
   componentDidMount: ->
-    this.props.collection.on 'add', =>
+    this.props.collection.on 'add change remove', =>
       this.forceUpdate()
-      console.log 'rendered!'
-    this.props.collection.fetch
-      url: '/account/posts.json'
-      success: =>
-        console.log 'loaded', this.props.collection
-      error: ->
-        console.error 'error!'
+    this.props.collection.fetch()
 
-  handlePostSubmit: ->
-    # todo
+  handlePostSubmit: (post) ->
+    this.props.collection.create post
+
 
   render: ->
     return (
@@ -23,8 +18,13 @@ UserPostBox = React.createClass
     )
 
 window.PostModel = Backbone.Model.extend({})
+
 window.PostsCollecion = Backbone.Collection.extend
   model: PostModel
+  url: '/posts'
+  sync: (method, model, options) ->
+    options.url = if method == 'read' then '/account/posts' else '/posts'
+    Backbone.sync method, model, options
 
 usersPosts = new PostsCollecion()
 
