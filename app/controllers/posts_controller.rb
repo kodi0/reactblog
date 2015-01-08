@@ -12,18 +12,11 @@ class PostsController < ApplicationController
     respond_with(@post)
   end
 
-  def new
-    @post = Post.new
-    respond_with(@post)
-  end
-
-  def edit
-  end
-
   def create
     @post = Post.new(post_params)
     @post.save
-    respond_with(@post)
+    @posts = Post.all
+    render json: @posts
   end
 
   def update
