@@ -16,3 +16,4 @@ gem 'spring',        group: :development
 gem 'bcrypt', '~> 3.1.7'
 gem 'devise'
 gem 'bootstrap-sass', '~> 3.3.0'
+gem 'rails-backbone', github: 'codebrew/backbone-rails'

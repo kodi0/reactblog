@@ -1,6 +1,5 @@
 var Posts = React.createClass({
   render: function() {
-    console.log(this.props.data);
     var PostNodes = this.props.data.map(function (post) {
       return (
         <div>
