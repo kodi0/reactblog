@@ -14,10 +14,10 @@
 //= require jquery_ujs
 //= require react
 //= require react_ujs
-//= require components
 //= require underscore
 //= require backbone
 //= require backbone_rails_sync
 //= require backbone_datalink
 //= require backbone/reactapp
+//= require components
 //= require_tree .

@@ -6,23 +6,23 @@ PostForm = React.createClass
   hadleSubmit: (e)->
     e.preventDefault()
     # get data from form
-    title = this.refs.title.getDOMNode().value.trim();
-    body = this.refs.body.getDOMNode().value.trim();
+    title = $('#title').val()
+    body = $('#body').val()
     # call onPostSubmit in parent PostBox and pass post object
     # this is mechanism with which we can transfer data from child to parent
     this.props.onPostSubmit({title: title, body: body});
     # clear form
-    this.refs.title.getDOMNode().value = '';
-    this.refs.body.getDOMNode().value = '';
+    title = $('#title').val('')
+    body = $('#body').val('')
 
   render: ->
     return (
       `<div>
         <form className="postForm" onSubmit={this.hadleSubmit}>
           <h3>Submit new post</h3>
-          <input type="text" className="form-control" placeholder="Title" ref="title" />
+          <input type="text" className="form-control" placeholder="Title" ref="title" id="title" />
           <br />
-          <textarea className="form-control" placeholder="Subject" ref="body" ></textarea>
+          <textarea className="form-control" placeholder="Subject" ref="body" id="body"></textarea>
           <br />
           <input className="btn" type="submit" value="Post" />
         </form>
