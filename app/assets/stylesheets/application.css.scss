@@ -21,3 +21,26 @@
  .postForm{
     width:500px;
  }
+
+.animate-enter {
+  opacity    : 0.01;
+  transition : opacity .5s ease-in;
+}
+
+.animate-enter.animate-enter-active {
+  opacity : 1;
+}
+
+.animate-leave {
+  opacity    : 1;
+  transition : opacity .5s ease-in;
+}
+
+.animate-leave.animate-leave-active {
+  opacity : 0.01;
+}
+
+a {
+  cursor : pointer;
+  color  : blue;
+}

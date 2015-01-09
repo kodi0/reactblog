@@ -1,4 +1,4 @@
-UserPostBox = React.createClass
+window.UserPostBox = React.createClass
   componentDidMount: ->
     this.props.collection.on 'add change remove', =>
       this.forceUpdate()
@@ -26,6 +26,3 @@ window.PostsCollecion = Backbone.Collection.extend
     options.url = if method == 'read' then '/account/posts' else '/posts'
     Backbone.sync method, model, options
 
-usersPosts = new PostsCollecion()
-
-React.render `<UserPostBox collection = { usersPosts } />`, document.getElementById('user-post-box')

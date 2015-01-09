@@ -17,4 +17,5 @@
 //= require react_ujs
 //= require backbone-rails
 //= require components
+//= require router
 //= require_tree .
