@@ -21,3 +21,15 @@
  .postForm{
     width:500px;
  }
+ .close-account{
+  display:block;
+  height:10px;
+  background-color:gray;
+  cursor: pointer;
+}
+.open-account{
+  cursor: pointer;
+}
+#account-box{
+  display: none;
+}

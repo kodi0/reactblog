@@ -14,13 +14,15 @@ PostBox = React.createClass
   componentDidMount: ->
     this.loadPostsFromServer()
   
-  accountHandle: ->
+  renderAccount: ->
+    $('#account-box').slideToggle()
 
   render: ->
     return (
        `<div className="postBox">
+        <Account myposts={myPostsCollection} post={post} />        
          <h2>Posts</h2>
-         <a href="#account" >Account</a>
+         <a onClick={this.renderAccount} className="open-account" >Account</a>
          <hr />
          <Posts data={this.state.data} />
        </div>`
@@ -29,16 +31,6 @@ PostBox = React.createClass
 postsCollection = new Reactapp.Collections.PostsCollection()
 post  = new Reactapp.Models.Post()
 myPostsCollection = new Reactapp.Collections.UserPostsCollection()
-
-Router = Backbone.Router.extend
-  routes : 
-    "account" : "myAccount"  
-  myAccount : ->
-    React.render  `<Account myposts={myPostsCollection} post={post} />,
-      document.body`
-    
-new Router()
-Backbone.history.start()  
 
 
 React.render `<PostBox collection={postsCollection} />`, document.getElementById('post_box')
