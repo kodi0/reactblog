@@ -4,24 +4,40 @@
 # User posts compenent
 
 UserAccount = React.createClass
+  mixins: [BackboneMixin]
+  
+  getBackboneCollections: ->
+    [this.props.posts]
+  
+  getInitialState:->
+    data: []
+
   componentDidMount: ->
-    this.props.userPostsCollection.fetch()
-      .error (xhr, status, err)=>
-        console.error(this.props.url, status, err.toString())
+    $.ajax(
+      url:'/posts?q=user'
+      dataType: 'json')
+    .done (data)=>
+      this.setState
+        data: data
 
   handlePostSubmit: (post)->
-    this.props.userPostsCollection.create(post)
-      .error (xhr, status, err)=>
-        console.error('/posts.json', status, err.toString())
-  
+    $.ajax(
+      type: 'POST'
+      url : '/posts'
+      dataType: 'json'
+      data: {post:post})
+    .done (data)=>
+      this.setState
+        data: data
+
   render: ->
     return (
       `<div>
         <PostForm onPostSubmit={this.handlePostSubmit} />
         <hr />
-        <Posts data={this.props.userPostsCollection} />
+        <Posts data={this.state.data} />
       </div>`
       )
 
 
-window.Account = Account
+window.UserAccount = UserAccount

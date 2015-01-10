@@ -4,10 +4,10 @@ class PostsController < ApplicationController
   respond_to :html, :json
 
   def index
-    @posts = Post.all
+    @posts = Post.search(params['user'],current_user)
     respond_with(@posts)
   end
-
+  
   def show
     respond_with(@post)
   end

@@ -8,9 +8,9 @@ class Reactapp.Models.Post extends Backbone.Model
 
 class Reactapp.Collections.MainPagePostsCollection extends Backbone.Collection
   model: Reactapp.Models.Post
-  url: '/posts.json'
+  url: '/posts'
 
 class Reactapp.Collections.UserPostsCollection extends Backbone.Collection
   model: Reactapp.Models.Post
-  url: '/account/index.json'
+  url: '/posts'
 
