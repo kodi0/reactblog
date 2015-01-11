@@ -4,11 +4,7 @@
 # User posts compenent
 
 UserAccount = React.createClass
-  mixins: [BackboneMixin]
-  
-  getBackboneCollections: ->
-    [this.props.posts]
-  
+
   getInitialState:->
     data: []
 

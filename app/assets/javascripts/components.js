@@ -1,4 +1,3 @@
-//= require components/backbone_mixin
 //= require components/posts/post
 //= require components/posts/posts
 //= require components/posts/post_form

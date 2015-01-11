@@ -15,6 +15,7 @@
 //= require bootstrap-sprockets
 //= require react
 //= require react_ujs
+//= require vendors/react-router
 //= require underscore
 //= require backbone
 //= require backbone_rails_sync

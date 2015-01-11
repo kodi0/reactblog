@@ -2,20 +2,22 @@
 # Posts component
 # 
 MainPage = React.createClass
-  mixins: [BackboneMixin]
-  
-  getBackboneCollections: ->
-    [this.props.posts]
-  
+  getInitialState: ->
+    data: []
   componentDidMount: ->
-    @props.posts.fetch()
+    $.ajax(
+      url:'/posts'
+      dataType: 'json')
+    .done (data)=>
+      this.setState
+        data: data
 
   render: ->
     return (
        `<div>
          <h2>Posts</h2>
          <hr />
-         <Posts data={this.props.posts} />
+         <Posts data={this.state.data} />
        </div>`
       )
 
