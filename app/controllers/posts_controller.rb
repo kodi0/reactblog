@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   respond_to :html, :json
 
   def index
-    @posts = Post.search(params['user'],current_user)
+    @posts = Post.search(params['q'],current_user)
     respond_with(@posts)
   end
   
