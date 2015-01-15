@@ -5,12 +5,16 @@ MainPage = React.createClass
   getInitialState: ->
     data: []
   componentDidMount: ->
-    $.ajax(
+    req = $.ajax
       url:'/posts'
-      dataType: 'json')
-    .done (data)=>
+      dataType: 'json'
+    
+    req.done (data)=>
       this.setState
         data: data
+    
+    req.fail (error)->
+      console.log(error)    
 
   render: ->
     return (

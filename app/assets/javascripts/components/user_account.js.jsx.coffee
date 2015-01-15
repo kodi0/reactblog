@@ -9,22 +9,30 @@ UserAccount = React.createClass
     data: []
 
   componentDidMount: ->
-    $.ajax(
+    req = $.ajax
       url:'/posts?q=user'
-      dataType: 'json')
-    .done (data)=>
+      dataType: 'json'
+    
+    req.done (data)=>
       this.setState
         data: data
 
   handlePostSubmit: (post)->
-    $.ajax(
+    req = $.ajax
       type: 'POST'
       url : '/posts'
       dataType: 'json'
-      data: {post:post})
-    .done (data)=>
+      data: 
+        post:post
+
+    req.done (data)=>
       this.setState
         data: data
+    req.fail (error)->
+       console.log(error)    
+ 
+  componentWillUnmount: ->
+    console.log('unmounted')
 
   render: ->
     return (
