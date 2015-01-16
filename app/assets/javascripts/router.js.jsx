@@ -1,9 +1,11 @@
 var Router = ReactRouter;
 var Route = ReactRouter.Route;
+var DefaultRoute = Router.DefaultRoute;
 
 var routes = (
-  <Route handler={MainPage} path="/">
-    <Route name="user" path="account" handler={UserAccount} />
+  <Route handler={App} path="/">
+    <DefaultRoute handler={MainPage}/>
+    <Route name="account" path="account" handler={UserAccount} />
   </Route>
 );
 
