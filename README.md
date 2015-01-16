@@ -2,6 +2,7 @@ Basic Blog app with:
  
  - React and Backbone - frontend
  - Rails - backend
+ - React with 'react-router' in react-router branch
 
 ===========
 
